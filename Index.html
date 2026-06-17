@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sissy Trials</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="Bel/Graf.css">
+    <style>
+      .intro-wrapper {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .challenge-image.intro-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    </style>
+</head>
+<body onload="initializePlayer(); renderCategoryIntroImages()">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="img\Other\sissy-pink.ico" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+    </a>
+    <h1 id="Titolo">Sissy Trials</h1>
+    <div id="topMenuButtons" style="margin-left: auto;">
+      <a href="https://www.patreon.com/c/SussiSissy" target="_blank" rel="noopener noreferrer" class="btn btn-outline-warning btn-sm" id="patreonBtn" style="margin-right:8px;">Patreon</a>
+    </div>
+  </div>
+</nav>
+
+    <div class="container mt-5">
+      <h2 id="scoreDisplay" style="display: none; text-align: center;">Score: 0</h2>
+      <div class="row mb-3">
+        <div class="col-12 text-center">
+          <div id="modeInfo"></div>
+        </div>
+      </div>
+      <div class="row" id="cardsSection">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body" onclick="analChallenge()" style="cursor: pointer;">
+              <h5 class="card-title" id="cardTitle">Anal</h5>  
+              <div id="analContent"></div>            
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body" onclick="chastityChallenge()" style="cursor: pointer;">
+              <h5 class="card-title">Chastity</h5>
+              <div id="chastityContent"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body" onclick="oralChallenge()" style="cursor: pointer;">
+              <h5 class="card-title">Oral</h5>
+              <div id="oralContent"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body" onclick="ballbustingChallenge()" style="cursor: pointer;">
+              <h5 class="card-title">Ballbusting</h5>
+              <div id="ballbustingContent"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body" onclick="hypnoChallenge()" style="cursor: pointer;">
+              <h5 class="card-title">Hypno</h5>
+              <div id="hypnoContent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <a href="#" class="btn btn-success btn-lg" id="randomModeBtn" onclick="startGame('random')" style="margin-right: 20px;">RANDOM MODE</a>
+          <a href="#" class="btn btn-info btn-lg" id="choiceModeBtn" onclick="startGame('choice')" style="margin-right: 20px;">CHOICE MODE</a>
+          <a href="#" class="btn btn-danger btn-lg" id="analHeroBtn" onclick="startGame('hero')">HERO MODE</a>
+        </div>
+      </div>
+      
+      <div class="row mt-3" id="choiceBackRow" style="display: none;">
+        <div class="col-12 text-center">
+          <a href="#" class="btn btn-warning btn-lg" id="choiceBackBtn" onclick="stopGame()">BACK TO MENU</a>
+        </div>
+      </div>
+      
+      <div class="row mt-5" id="gameButtons" style="display: none;">
+        <div class="col-12 text-center">
+          <a href="#" class="btn btn-warning btn-lg" onclick="backToMenuOrChoice()" style="margin-right: 20px;">BACK TO MENU</a>
+          <a href="#" class="btn btn-success btn-lg" onclick="completeChallenge()" style="margin-right: 20px;">COMPLETE</a>
+          <a href="#" class="btn btn-danger btn-lg" onclick="failChallenge()">FAILED</a>
+        </div>
+      </div>
+      
+      <!-- Generic Message Modal -->
+      <div id="messageModal" class="modal" style="display: none;">
+        <div class="modal-dialog">
+          <div class="modal-content message-modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="messageModalTitle"></h4>
+              <button type="button" class="close" onclick="closeModal('messageModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="messageModalBody"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="closeModal('messageModal')">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script src="JavaScript.js"></script>
+</body>
+</html>
